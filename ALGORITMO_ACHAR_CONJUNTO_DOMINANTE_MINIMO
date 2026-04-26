@@ -1,22 +1,22 @@
 ACHAR-CONJUNTO-DOMINANTE-MINIMO(G)
 
-1   V ← lista de vértices de G
+  V ← lista de vértices de G
     // Extrai todos os vértices do grafo e armazena em uma lista V
 
-2   n ← |V|
+  n ← |V|
     // Armazena a quantidade total de vértices do grafo
 
-3   para k ← 1 até n
+   para k ← 1 até n
     // Laço externo: define o tamanho do subconjunto (começa do menor possível)
 
-4       faça para cada S ∈ COMBINACOES(V, k)
+       faça para cada S ∈ COMBINACOES(V, k)
         // Gera todos os subconjuntos S de V com exatamente k vértices
 
-5           faça se DOMINA-TUDO(G, S) = verdadeiro
+           faça se DOMINA-TUDO(G, S) = verdadeiro
             // Verifica se o subconjunto S cobre todos os vértices do grafo
 
-6               então retorne S
+               então retorne S
                 // Se S for dominante, retorna imediatamente (garante que é mínimo)
 
-7   retorne V
+   retorne V
     // Caso nenhum subconjunto menor funcione, retorna todos os vértices (caso extremo)
