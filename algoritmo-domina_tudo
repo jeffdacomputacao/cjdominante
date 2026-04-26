@@ -1,0 +1,24 @@
+Função DOMINA_TUDO(conjunto)
+
+    cobertos ← CONJUNTO_VAZIO()
+
+    Para cada sala em conjunto faça
+
+        // adiciona o próprio vértice
+        ADICIONAR(cobertos, sala)
+
+        // adiciona todos os vizinhos
+        Para cada vizinho em self.grafo[sala] faça
+            ADICIONAR(cobertos, vizinho)
+        FimPara
+
+    FimPara
+
+    // verifica se todos os vértices foram cobertos
+    Se cobertos = CONJUNTO_DE_CHAVES(self.grafo) então
+        Retorne VERDADEIRO
+    Senão
+        Retorne FALSO
+    FimSe
+
+FimFunção

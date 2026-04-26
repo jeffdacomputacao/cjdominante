@@ -1,0 +1,27 @@
+Função ACHAR_CONJUNTO_DOMINANTE_MINIMO()
+
+    // Obtém todos os vértices do grafo
+    vertices ← LISTA_DE_CHAVES(self.grafo)
+
+    // Loop para testar subconjuntos de tamanho crescente
+    Para tamanho de 1 até TAMANHO(vertices) faça
+
+        // Gera todas as combinações de vértices com esse tamanho
+        Para cada grupo em COMBINACOES(vertices, tamanho) faça
+
+            // Verifica se o grupo domina todo o grafo
+            Se DOMINA_TUDO(grupo) então
+
+                // Retorna o primeiro grupo válido encontrado
+                Retorne CONJUNTO(grupo)
+
+            FimSe
+
+        FimPara
+
+    FimPara
+
+    // Caso não encontre (situação limite)
+    Retorne CONJUNTO(vertices)
+
+FimFunção
