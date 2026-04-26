@@ -1,24 +1,8 @@
-Função DOMINA_TUDO(conjunto)
-
-    cobertos ← CONJUNTO_VAZIO()
-
-    Para cada sala em conjunto faça
-
-        // adiciona o próprio vértice
-        ADICIONAR(cobertos, sala)
-
-        // adiciona todos os vizinhos
-        Para cada vizinho em self.grafo[sala] faça
-            ADICIONAR(cobertos, vizinho)
-        FimPara
-
-    FimPara
-
-    // verifica se todos os vértices foram cobertos
-    Se cobertos = CONJUNTO_DE_CHAVES(self.grafo) então
-        Retorne VERDADEIRO
-    Senão
-        Retorne FALSO
-    FimSe
-
-FimFunção
+ACHAR-CONJUNTO-DOMINANTE-MINIMO(G)
+1   V ← lista de vértices de G
+2   n ← |V|
+3   para k ← 1 até n
+4       faça para cada S ∈ COMBINACOES(V, k)
+5           faça se DOMINA-TUDO(G, S) = verdadeiro
+6               então retorne S
+7   retorne V
