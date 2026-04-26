@@ -1,9 +1,23 @@
 DOMINA-TUDO(G, S)
-1   C ← ∅
-2   para cada v ∈ S
-3       faça C ← C ∪ {v}
-4            para cada u ∈ Adj[v]
-5                faça C ← C ∪ {u}
-6   se C = V[G]
-7       então retorne verdadeiro
-8   senão retorne falso
+
+  C ← ∅
+    // Inicializa o conjunto C vazio, que armazenará os vértices cobertos
+
+  para cada v ∈ S
+    // Percorre cada vértice v pertencente ao conjunto S (onde há roteadores)
+
+     faça C ← C ∪ {v}
+        // Adiciona o próprio vértice v ao conjunto de cobertos
+
+           para cada u ∈ Adj[v]
+             // Percorre todos os vizinhos u de v no grafo
+                faça C ← C ∪ {u}
+                // Adiciona cada vizinho u ao conjunto de cobertos
+   se C = V[G]
+    // Verifica se o conjunto de cobertos é igual ao conjunto total de vértices do grafo
+
+      então retorne verdadeiro
+        // Se todos os vértices foram cobertos, S é um conjunto dominante
+
+  senão retorne falso
+    // Caso contrário, S não cobre todo o grafo
