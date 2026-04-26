@@ -1,27 +1,22 @@
-Função ACHAR_CONJUNTO_DOMINANTE_MINIMO()
+ACHAR-CONJUNTO-DOMINANTE-MINIMO(G)
 
-    // Obtém todos os vértices do grafo
-    vertices ← LISTA_DE_CHAVES(self.grafo)
+1   V ← lista de vértices de G
+    // Extrai todos os vértices do grafo e armazena em uma lista V
 
-    // Loop para testar subconjuntos de tamanho crescente
-    Para tamanho de 1 até TAMANHO(vertices) faça
+2   n ← |V|
+    // Armazena a quantidade total de vértices do grafo
 
-        // Gera todas as combinações de vértices com esse tamanho
-        Para cada grupo em COMBINACOES(vertices, tamanho) faça
+3   para k ← 1 até n
+    // Laço externo: define o tamanho do subconjunto (começa do menor possível)
 
-            // Verifica se o grupo domina todo o grafo
-            Se DOMINA_TUDO(grupo) então
+4       faça para cada S ∈ COMBINACOES(V, k)
+        // Gera todos os subconjuntos S de V com exatamente k vértices
 
-                // Retorna o primeiro grupo válido encontrado
-                Retorne CONJUNTO(grupo)
+5           faça se DOMINA-TUDO(G, S) = verdadeiro
+            // Verifica se o subconjunto S cobre todos os vértices do grafo
 
-            FimSe
+6               então retorne S
+                // Se S for dominante, retorna imediatamente (garante que é mínimo)
 
-        FimPara
-
-    FimPara
-
-    // Caso não encontre (situação limite)
-    Retorne CONJUNTO(vertices)
-
-FimFunção
+7   retorne V
+    // Caso nenhum subconjunto menor funcione, retorna todos os vértices (caso extremo)
